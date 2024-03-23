@@ -31,6 +31,7 @@
 
       // Handle incoming audio from the broadcaster
       socket.on("audio", (data) => {
+        document.getElementById("message").textContent = "Streaming...";
         processAudioData(data);
       });
 
@@ -44,6 +45,8 @@
           source.start();
         } catch (error) {
           console.error("Error decoding audio data:", error);
+          document.getElementById("message").textContent =
+            JSON.stringify(error);
         }
       }
     </script>
