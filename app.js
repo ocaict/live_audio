@@ -6,7 +6,7 @@ const io = require("socket.io")(http);
 const cors = require("cors");
 
 // Serve static files
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(
   cors({
     origin: "*",
@@ -14,12 +14,12 @@ app.use(
 );
 
 // Broadcaster route
-app.get("/", (req, res) => {
+app.get("/broadcast", (req, res) => {
   res.sendFile(__dirname + "/public/broadcaster.html");
 });
 
 // Listeners route
-app.get("/listener", (req, res) => {
+app.get("/listen", (req, res) => {
   res.sendFile(__dirname + "/public/listener.html");
 });
 
